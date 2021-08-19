@@ -12,13 +12,6 @@ const { ppid } = require("process");
 const { ensureAuthenticated } = require("./config/auth.js");
 const nodemailer = require("nodemailer");
 
-let User = mongoose.model("User", credSchema);
-let credSchema = new mongoose.Schema({
-  username: String,
-  email: String,
-  password: String,
-});
-
 
 
 const connectDB = async () =>{
@@ -35,12 +28,30 @@ connectDB()
 
 
 
+let credSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  password: String,
+});
 
 
 
 
 
+let User = mongoose.model("User", credSchema);
 
+
+
+let submitSchema = new mongoose.Schema({
+  realname: String,
+  platform: String,
+  username: String,
+  contactemail: String,
+  discordid: String,
+  country: String,
+  note: String,
+});
+let Submit = mongoose.model("Submit", submitSchema);
 
 
 
@@ -93,16 +104,6 @@ app.get("/", (req, res) => {
   res.render("index3");
 });
 
-let submitSchema = new mongoose.Schema({
-  realname: String,
-  platform: String,
-  username: String,
-  contactemail: String,
-  discordid: String,
-  country: String,
-  note: String,
-});
-let Submit = mongoose.model("Submit", submitSchema);
 
 app.get('/contact',(req,res)=>{
   res.render('contact')
@@ -113,6 +114,11 @@ app.post('/contact',(req,res)=>{
   res.render('contactthanks')
 
 })
+
+
+
+
+
 
 
 app.get("/submitpage", (req, res) => {
