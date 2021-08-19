@@ -134,7 +134,7 @@ app.post("/submitpage", (req, res) => {
     .save()
     .then((submit) => {
       req.flash("success_msg", "You are now registered and can login");
-      res.send("thx for submittin");
+      res.render('submitthanks');
     })
     .catch((err) => console.log(err));
 });
