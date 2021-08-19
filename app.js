@@ -12,6 +12,26 @@ const { ppid } = require("process");
 const { ensureAuthenticated } = require("./config/auth.js");
 const nodemailer = require("nodemailer");
 
+
+const conn =  mongoose.connect('mongodb+srv://exoticformula:kishorx123@cluster0.l9a0h.mongodb.net/userinfoDB?retryWrites=true&w=majority',{
+  useNewUrlParser:true,
+  useCreateIndex:true,
+  userFindAndModify:false
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -22,10 +42,6 @@ const transporter = nodemailer.createTransport({
 const LocalStrategy = require("passport-local").Strategy;
 const passport = require("passport");
 
-mongoose.connect("mongodb://localhost:27017/userinfoDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 const app = express();
 app.set("view engine", "ejs");
@@ -288,11 +304,6 @@ let credSchema = new mongoose.Schema({
 app.get("/copy", (req, res) => {
   res.render("index3");
 });
-
-app.get('/copydash',(req,res)=>{
-  res.render('copynotfound')
-})
-
 
 
 

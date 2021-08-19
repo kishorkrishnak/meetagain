@@ -5,8 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devStart": "nodemon app.js",
-    "start":"node app.js"
-
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +20,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
     "jquery": "^3.6.0",
+    "mongodb": "^3.6.11",
     "mongoose": "^5.13.7",
     "nodemailer": "^6.6.3",
     "passport": "^0.4.1",
