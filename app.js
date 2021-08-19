@@ -43,7 +43,6 @@ let submitSchema = new mongoose.Schema({
   username: String,
   contactemail: String,
   discordid: String,
-  country: String,
   note: String,
 });
 let Submit = mongoose.model("Submit", submitSchema);
@@ -125,7 +124,7 @@ app.post("/submitpage", (req, res) => {
     realname: req.body.name,
     platform:req.body.platform,
     username: (req.body.username).toLowerCase().trim(),
-    country:(req.body.country).toLowerCase().trim(),
+   
     contactemail: req.body.contactemail,
     discordid: req.body.discord,
     note: req.body.message,
@@ -297,7 +296,7 @@ app.post("/searchreq", (req, res) => {
       res.render("results", {
         realname: submit.realname,
         username: submit.username,
-        country: submit.country,
+      
         starredemail: starredemail,
         orginalemail: submit.email,
         message: submit.note,
