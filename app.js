@@ -12,6 +12,13 @@ const { ppid } = require("process");
 const { ensureAuthenticated } = require("./config/auth.js");
 const nodemailer = require("nodemailer");
 
+let User = mongoose.model("User", credSchema);
+let credSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  password: String,
+});
+
 
 
 const connectDB = async () =>{
@@ -137,12 +144,6 @@ app.get("/signup", (req, res) => {
 
 
 app.get("/login", (req, res,) => {
-
-res.set({
-    'Cache-Control': 'no-cache, no-store, must-revalidate',
-    'Pragma' : 'no-cache',
-    'Expires' : '0',
-})
 
 
   res.render("loginform");
@@ -300,12 +301,6 @@ app.post("/searchreq", (req, res) => {
     });
 });
 
-let credSchema = new mongoose.Schema({
-  username: String,
-  email: String,
-  password: String,
-});
-
 
 
 app.get("/copy", (req, res) => {
@@ -314,4 +309,3 @@ app.get("/copy", (req, res) => {
 
 
 
-let User = mongoose.model("User", credSchema);
