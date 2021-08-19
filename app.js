@@ -55,7 +55,7 @@ let Submit = mongoose.model("Submit", submitSchema);
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "fakeheisenberg2004@gmail.com",
+    user: "meetagainsite@gmail.com",
     pass: "kishorx123",
   },
 });
