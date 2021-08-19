@@ -33,15 +33,7 @@ let credSchema = new mongoose.Schema({
   email: String,
   password: String,
 });
-
-
-
-
-
 let User = mongoose.model("User", credSchema);
-
-
-
 let submitSchema = new mongoose.Schema({
   realname: String,
   platform: String,
