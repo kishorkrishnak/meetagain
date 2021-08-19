@@ -16,7 +16,7 @@ const nodemailer = require("nodemailer");
 
 const connectDB = async () =>{
 
-const conn =  awaitmongoose.connect('mongodb+srv://exoticformula:kishorx123@cluster0.l9a0h.mongodb.net/userinfoDB?retryWrites=true&w=majority',{
+const conn =  await mongoose.connect('mongodb+srv://exoticformula:kishorx123@cluster0.l9a0h.mongodb.net/userinfoDB?retryWrites=true&w=majority',{
   useNewUrlParser:true,
   useCreateIndex:true,
   userFindAndModify:false
