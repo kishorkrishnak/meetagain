@@ -34,6 +34,9 @@ let credSchema = new mongoose.Schema({
   password: String,
 });
 let User = mongoose.model("User", credSchema);
+
+
+
 let submitSchema = new mongoose.Schema({
   realname: String,
   platform: String,
@@ -143,8 +146,16 @@ app.get("/signup", (req, res) => {
 
 app.get("/login", (req, res,) => {
 
+  if(req.user){
+    res.render('copydash')
+  }else{ 
+    res.render("loginform");
 
-  res.render("loginform");
+
+  }
+
+
+ 
 });
 
 app.post("/signup", (req, res) => {
