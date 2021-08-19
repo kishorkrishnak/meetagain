@@ -13,11 +13,18 @@ const { ensureAuthenticated } = require("./config/auth.js");
 const nodemailer = require("nodemailer");
 
 
-const conn =  mongoose.connect('mongodb+srv://exoticformula:kishorx123@cluster0.l9a0h.mongodb.net/userinfoDB?retryWrites=true&w=majority',{
+
+const connectDB = async () =>{
+
+const conn =  awaitmongoose.connect('mongodb+srv://exoticformula:kishorx123@cluster0.l9a0h.mongodb.net/userinfoDB?retryWrites=true&w=majority',{
   useNewUrlParser:true,
   useCreateIndex:true,
   userFindAndModify:false
 })
+}
+
+connectDB()
+
 
 
 
