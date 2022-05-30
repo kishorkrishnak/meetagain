@@ -12,21 +12,18 @@ const { ppid } = require("process");
 const { ensureAuthenticated } = require("./config/auth.js");
 const nodemailer = require("nodemailer");
 
+const connectDB = async () => {
+  const conn = await mongoose.connect(
+    "mongodb+srv://exoticformula:kishorx123@cluster0.l9a0h.mongodb.net/userinfoDB?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      userFindAndModify: false,
+    }
+  );
+};
 
-
-const connectDB = async () =>{
-
-const conn =  await mongoose.connect('mongodb+srv://exoticformula:kishorx123@cluster0.l9a0h.mongodb.net/userinfoDB?retryWrites=true&w=majority',{
-  useNewUrlParser:true,
-  useCreateIndex:true,
-  userFindAndModify:false
-})
-}
-
-connectDB()
-
-
-
+connectDB();
 
 let credSchema = new mongoose.Schema({
   username: String,
@@ -34,8 +31,6 @@ let credSchema = new mongoose.Schema({
   password: String,
 });
 let User = mongoose.model("User", credSchema);
-
-
 
 let submitSchema = new mongoose.Schema({
   realname: String,
@@ -47,10 +42,6 @@ let submitSchema = new mongoose.Schema({
 });
 let Submit = mongoose.model("Submit", submitSchema);
 
-
-
-
-
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -61,11 +52,10 @@ const transporter = nodemailer.createTransport({
 const LocalStrategy = require("passport-local").Strategy;
 const passport = require("passport");
 
-
 const app = express();
 app.set("view engine", "ejs");
 
-app.use(express.static(path.join(__dirname,"new")));
+// app.use(express.static(path.join(__dirname, "new")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -98,22 +88,14 @@ app.get("/", (req, res) => {
   res.render("index3");
 });
 
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
 
-app.get('/contact',(req,res)=>{
-  res.render('contact')
-})
-
-app.post('/contact',(req,res)=>{
+app.post("/contact", (req, res) => {
   console.log(req.body);
-  res.render('contactthanks')
-
-})
-
-
-
-
-
-
+  res.render("contactthanks");
+});
 
 app.get("/submitpage", (req, res) => {
   res.render("submitpage");
@@ -122,9 +104,9 @@ app.post("/submitpage", (req, res) => {
   console.log(req.body);
   var submit_instance = new Submit({
     realname: req.body.name,
-    platform:req.body.platform,
-    username: (req.body.username).toLowerCase().trim(),
-   
+    platform: req.body.platform,
+    username: req.body.username.toLowerCase().trim(),
+
     contactemail: req.body.contactemail,
     discordid: req.body.discord,
     note: req.body.message,
@@ -133,7 +115,7 @@ app.post("/submitpage", (req, res) => {
     .save()
     .then((submit) => {
       req.flash("success_msg", "You are now registered and can login");
-      res.render('submitthanks');
+      res.render("submitthanks");
     })
     .catch((err) => console.log(err));
 });
@@ -142,19 +124,12 @@ app.get("/signup", (req, res) => {
   res.render("signupform");
 });
 
-
-app.get("/login", (req, res,) => {
-
-  if(req.user){
-    res.render('copydash')
-  }else{ 
+app.get("/login", (req, res) => {
+  if (req.user) {
+    res.render("copydash");
+  } else {
     res.render("loginform");
-
-
   }
-
-
- 
 });
 
 app.post("/signup", (req, res) => {
@@ -260,7 +235,6 @@ app.get("/dashboard", ensureAuthenticated, (req, res) => {
   res.render("copydash", {
     user_name: req.user.username,
   });
-
 });
 
 app.get("/logout", (req, res) => {
@@ -270,38 +244,30 @@ app.get("/logout", (req, res) => {
 });
 
 app.post("/searchreq", (req, res) => {
+  let sub2;
   console.log(req.body);
-  Submit.findOne({ username: req.body.usersearch.toLowerCase().trim() })
+  Submit.find({ username: req.body.usersearch.toLowerCase().trim() })
     .then((submit) => {
-      let emailarray = [];
+      sub2 = submit;
 
-      let emailcopy = submit.contactemail;
-      for (i = 0; i < 3; i++) {
-        emailarray.push(emailcopy[i]);
-      }
-      emaildiff = Number(emailcopy.length) - Number(12);
+      console.log(submit);
+if(submit.length>0){
+  res.render(
+    "results",
+    // realname: submit.realname,
+    // username: submit.username,
 
-      let stararray = [];
-      for (i = 1; i < emaildiff; i++) {
-        stararray.push("*");
-      }
+    // starredemail: starredemail,
+    // orginalemail: submit.email,
+    // message: submit.note,
+    // disc:submit.discordid
 
-      let stararraysplit = stararray.join("");
-
-      let starredemail = emailarray.join("") + stararraysplit + "@gmail.com";
-
-      console.log(emailarray.join("") + stararraysplit + "@gmail.com");
-      console.log(submit.note);
-
-      res.render("results", {
-        realname: submit.realname,
-        username: submit.username,
-      
-        starredemail: starredemail,
-        orginalemail: submit.email,
-        message: submit.note,
-        disc:submit.discordid
-      });
+    {submit}
+  );
+}else{
+  res.render("notfoundv2")
+}
+   
     })
     .catch((err) => {
       console.log(err);
@@ -309,11 +275,6 @@ app.post("/searchreq", (req, res) => {
     });
 });
 
-
-
 app.get("/copy", (req, res) => {
   res.render("index3");
 });
-
-
-

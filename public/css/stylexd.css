@@ -718,12 +718,15 @@ h6 {
 
 
 .lelel{
-   width: 75%;
-   margin: auto;
+ width: 800px;
+    margin: auto; 
 }
 
-.container{
+
+.resultbody{
     height: 100vh;
+    padding: 0;
+    margin: 0;
 }
 
 .announcefound{
