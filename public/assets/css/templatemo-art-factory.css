@@ -5,9 +5,9 @@ ART FACTORY
 https://templatemo.com/tm-537-art-factory
 
 */
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 /* 
 
 ---------------------------------------------
@@ -238,7 +238,6 @@ a.main-button-slider:hover {
 }
 
 a.main-button {
-  
   font-size: 13px;
   border-radius: 20px;
   padding: 12px 20px;
@@ -347,7 +346,7 @@ header
   color: #ffb42a;
   font-size: 40px;
   font-weight: 700;
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   text-transform: uppercase;
   letter-spacing: 2px;
   float: left;
@@ -453,9 +452,6 @@ header
   font-size: 13px;
   border-bottom: 1px solid #f5f5f5;
 }
-
-
-
 
 .header-area .main-nav .nav li.submenu ul li a:before {
   content: "";
@@ -731,7 +727,7 @@ welcome
   justify-content: center;
   background-image: url(../images/banner-bg.png);
   background-repeat: no-repeat;
-/*
+  /*
 TRY IT ... with or without CENTER CENTER
   background-position: center center; 
 */
@@ -1098,229 +1094,8 @@ services
 
 /*
 ---------------------------------------------
-accordions
----------------------------------------------
-*/
 
-#frequently-question {
-  padding: 120px 0px;
-}
 
-#frequently-question .section-heading p {
-  margin-bottom: 80px;
-}
-
-#frequently-question .left-text {
-  align-self: center !important;
-}
-
-#frequently-question .left-text h5 {
-  font-size: 26px;
-  font-weight: 700;
-  color: #1e1e1e;
-  line-height: 40px;
-  margin-bottom: 25px;
-  letter-spacing: 0.5px;
-}
-
-#frequently-question .left-text p {
-  margin-bottom: 30px;
-  font-size: 16px;
-  line-height: 30px;
-  letter-spacing: 0.5px;
-}
-
-#frequently-question .left-text span {
-  font-size: 16px;
-  color: #4a4a4a;
-  margin-bottom: 50px;
-  display: block;
-}
-
-#frequently-question .left-text span a {
-  font-weight: 500;
-}
-
-@media (max-width: 765px) {
-  #frequently-question .left-text {
-    margin-bottom: 60px;
-  }
-}
-
-.accordions {
-  background-color: #f7f7f7;
-}
-.accordion-head {
-  padding: 20px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: color 200ms ease-in-out;
-  border-bottom: 1px solid #fff;
-}
-@media screen and (min-width: 768px) {
-  .accordion-head {
-    padding: 1rem;
-    font-size: 1.2rem;
-  }
-}
-.accordion-head .icon {
-  float: right;
-  transition: transform 200ms ease-in-out;
-}
-.accordion-head.is-open {
-  color: #0088e8;
-  border-bottom: none;
-}
-.accordion-head.is-open .icon {
-  transform: rotate(45deg);
-}
-.accordion-body {
-  overflow: hidden;
-  height: 0;
-  transition: height 300ms ease-in-out;
-  border-bottom: 1px solid #fff;
-}
-.accordion-body > .content {
-  padding: 20px;
-  padding-top: 0;
-}
-
-/* 
----------------------------------------------
-contact
---------------------------------------------- 
-*/
-
-#contact-us .container-fluid {
-  padding-right: 0px;
-  padding-left: 0px;
-  overflow-x: hidden;
-}
-
-#contact-us .col-lg-6 {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-#contact-us h5 {
-  font-weight: 500;
-  font-size: 18px;
-  color: #1e1e1e;
-  letter-spacing: 0.25px;
-  line-height: 26px;
-}
-
-.contact-text {
-  font-weight: 400;
-  font-size: 14px;
-  color: #6f8ba4;
-  letter-spacing: 0.6px;
-  line-height: 26px;
-}
-
-.contact-text p {
-  margin-bottom: 28px;
-}
-
-.contact-field {
-  background-color: rgba(250, 250, 250, 0.3);
-}
-
-.contact-form {
-  padding: 100px;
-  background: rgba(0, 136, 232, 1);
-  background: -moz-linear-gradient(
-    -45deg,
-    rgba(0, 136, 232, 1) 0%,
-    rgba(0, 182, 198, 1) 0%,
-    rgba(0, 136, 232, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    right bottom,
-    color-stop(0%, rgba(0, 136, 232, 1)),
-    color-stop(0%, rgba(0, 182, 198, 1)),
-    color-stop(100%, rgba(0, 136, 232, 1))
-  );
-  background: -webkit-linear-gradient(
-    -45deg,
-    rgba(0, 136, 232, 1) 0%,
-    rgba(0, 182, 198, 1) 0%,
-    rgba(0, 136, 232, 1) 100%
-  );
-  background: -o-linear-gradient(
-    -45deg,
-    rgba(0, 136, 232, 1) 0%,
-    rgba(0, 182, 198, 1) 0%,
-    rgba(0, 136, 232, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    -45deg,
-    rgba(0, 136, 232, 1) 0%,
-    rgba(0, 182, 198, 1) 0%,
-    rgba(0, 136, 232, 1) 100%
-  );
-  background: linear-gradient(
-    135deg,
-    rgba(0, 136, 232, 1) 0%,
-    rgba(0, 182, 198, 1) 0%,
-    rgba(0, 136, 232, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0088e8', endColorstr='#0088e8', GradientType=1 );
-}
-
-@media (max-width: 765px) {
-  .contact-form {
-    padding: 60px;
-    margin-top: -7px;
-  }
-}
-
-.contact-form input,
-.contact-form textarea {
-  color: #777;
-  font-size: 14px;
-  border: none;
-  width: 100%;
-  height: 50px;
-  outline: none;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 0px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin-bottom: 30px;
-}
-
-.contact-form textarea {
-  height: 150px;
-  resize: none;
-  padding: 20px;
-}
-
-.contact-form {
-  text-align: center;
-}
-
-.contact-form ::-webkit-input-placeholder {
-  /* Edge */
-  color: #fff;
-}
-
-.contact-form :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #fff;
-}
-
-.contact-form ::placeholder {
-  color: #fff;
-}
-
-/* 
----------------------------------------------
-footer
---------------------------------------------- 
 */
 footer {
   background-color: #fff;
@@ -1461,87 +1236,62 @@ preloader
   }
 }
 
-
-@media (max-height: 600px){
+@media (max-height: 600px) {
   .header-area .main-nav .logo {
-   
     font-size: 0;
- 
   }
 
-  .wait{
+  .wait {
     font-size: 30px;
-    color: red
+    color: red;
   }
-  
 }
 
-
-.dogerblue{
+.dogerblue {
   padding: 10px;
   height: 300px;
   background-color: #2496ed;
-  
 }
 
-.wait{
+.wait {
   color: white;
-  margin-top:84px;
+  margin-top: 84px;
   font-size: 37px;
   font-weight: 500;
-  line-height:50px; 
-  font-family: 'Poppins', sans-serif;
+  line-height: 50px;
+  font-family: "Poppins", sans-serif;
 }
 
-
-#con1{
-  background-color: #022144; 
- 
+#con1 {
+  background-color: #022144;
 }
 
-.headercol{
+.headercol {
   background-color: #e9ebee;
 }
 
-.poptest{
+.poptest {
   color: #00bcd4;
-
-  
-
-
-
-
-  
-
 }
 
 .subtitlepopin {
-
-  font-family: 'Poppins', sans-serif;
-
-  
+  font-family: "Poppins", sans-serif;
 }
 
-#signupimg{
+#signupimg {
   margin-top: 100px;
-
 }
 
-.headercoll{
- 
+.headercoll {
   background-color: #6356a7;
   height: 100vh;
 }
 
-.headercollser{
-  background-color:#e9ebee;
+.headercollser {
+  background-color: #e9ebee;
   height: 100vh;
-
 }
-.subtitlepopincopy{
-  font-family: 'Poppins', sans-serif;
+.subtitlepopincopy {
+  font-family: "Poppins", sans-serif;
   color: white;
-
 }
-
-

@@ -3,12 +3,9 @@ const path = require("path");
 const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
-const { request } = require("http");
 const bcrypt = require("bcryptjs");
-const { userInfo } = require("os");
 const flash = require("connect-flash");
 const session = require("express-session");
-const { ppid } = require("process");
 const { ensureAuthenticated } = require("./config/auth.js");
 const nodemailer = require("nodemailer");
 
@@ -55,7 +52,6 @@ const passport = require("passport");
 const app = express();
 app.set("view engine", "ejs");
 
-// app.use(express.static(path.join(__dirname, "new")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -68,6 +64,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+
 // passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -85,7 +82,7 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (req, res) => {
-  res.render("index3");
+  res.render("index");
 });
 
 app.get("/contact", (req, res) => {
@@ -101,7 +98,6 @@ app.get("/submitpage", (req, res) => {
   res.render("submitpage");
 });
 app.post("/submitpage", (req, res) => {
-  console.log(req.body);
   var submit_instance = new Submit({
     realname: req.body.name,
     platform: req.body.platform,
@@ -120,15 +116,19 @@ app.post("/submitpage", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-app.get("/signup", (req, res) => {
-  res.render("signupform");
+app.get("/signin", (req, res) => {
+  if (req.user) {
+    res.render("dashboard");
+  } else {
+    res.render("signinpage");
+  }
 });
 
 app.get("/login", (req, res) => {
   if (req.user) {
-    res.render("copydash");
+    res.render("dashboard");
   } else {
-    res.render("loginform");
+    res.render("signinpage");
   }
 });
 
@@ -137,9 +137,7 @@ app.post("/signup", (req, res) => {
   const email = req.body.email;
   const passwd = req.body.password;
   const passwd2 = req.body.password2;
-
   let errors = [];
-
   if (!username || !email || !passwd || !passwd2) {
     errors.push({ msg: "Please fill in all fields" });
   } else if (passwd !== passwd2) {
@@ -150,13 +148,13 @@ app.post("/signup", (req, res) => {
 
   if (errors.length > 0) {
     console.log(errors);
-    res.render("signupform", { errors, username, email, passwd, passwd2 });
+    res.render("signinpage", { errors, username, email, passwd, passwd2 });
   } else {
     //validation succesfull
     User.findOne({ email: email }).then((user) => {
       if (user) {
         errors.push({ msg: "Email is already registered" });
-        res.render("signupform", { errors, username, email, passwd, passwd2 });
+        res.render("signinpage", { errors, username, email, passwd, passwd2 });
       } else {
         var user_instance = new User({
           username: username,
@@ -178,7 +176,7 @@ app.post("/signup", (req, res) => {
                   "success_msg",
                   "You are now registered and can login"
                 );
-                res.redirect("/login");
+                res.redirect("/signup");
               })
               .catch((err) => console.log(err));
           });
@@ -232,7 +230,7 @@ app.post("/login", (req, res, next) => {
 });
 
 app.get("/dashboard", ensureAuthenticated, (req, res) => {
-  res.render("copydash", {
+  res.render("dashboard", {
     user_name: req.user.username,
   });
 });
@@ -251,30 +249,22 @@ app.post("/searchreq", (req, res) => {
       sub2 = submit;
 
       console.log(submit);
-if(submit.length>0){
-  res.render(
-    "results",
-    // realname: submit.realname,
-    // username: submit.username,
+      if (submit.length > 0) {
+        res.render(
+          "results",
 
-    // starredemail: starredemail,
-    // orginalemail: submit.email,
-    // message: submit.note,
-    // disc:submit.discordid
-
-    {submit}
-  );
-}else{
-  res.render("notfoundv2")
-}
-   
+          { submit }
+        );
+      } else {
+        res.render("notfound");
+      }
     })
     .catch((err) => {
       console.log(err);
-      res.render("notfoundv2");
+      res.render("notfound");
     });
 });
 
-app.get("/copy", (req, res) => {
-  res.render("index3");
+app.get("/dev", (req, res) => {
+  res.render("log");
 });
