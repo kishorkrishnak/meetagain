@@ -7,23 +7,25 @@
     <meta content="" name="description" />
     <meta content="" name="keywords" />
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
-      rel="stylesheet"
-    />
-    <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
       href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="assets/css/templatemo-art-factory.css" />
-    <link href="css/index.css" rel="stylesheet" />
+    <link href="assets/css/index.css" rel="stylesheet" />
   </head>
   <body>
     <%- include('partials/navbar') -%>
-
     <section class="landing-section" id="hero">
       <div class="container">
         <div class="landing-content">
@@ -144,30 +146,7 @@
     <div class="dogerblue">
       <center class="wait">What you waiting for?<br />Register now!</center>
     </div>
-    <footer id="con1">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 col-md-12 col-sm-12">
-            <p class="copyright subtitlepopin">
-              Copyright &copy; 2020 MeetAgain
-            </p>
-          </div>
-          <div class="col-lg-5 col-md-12 col-sm-12">
-            <ul class="social">
-              <li>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%- include('partials/footer') -%>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
