@@ -1,0 +1,37 @@
+.user-card {
+  color: #4a4a4a;
+  width: 82vw;
+  max-width: 750px;
+  height: fit-content;
+  min-height: 350px;
+  text-align: left;
+  padding: 50px 20px;
+  border-radius: 5px;
+  background-color: white;
+
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0.2, 0.14);
+}
+.user-grid {
+  height: fit-content;
+  margin-top: 30px;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+  align-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(750px, 1fr));
+}
+
+.btn {
+  color: white;
+  background-color: #fc4747;
+  padding: 9px 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.container {
+  min-height: 100vh;
+  padding-top: 30px;
+  text-align: center;
+}

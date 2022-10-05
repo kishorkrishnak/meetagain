@@ -5,6 +5,10 @@
     <title>Sign Up | Log In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
@@ -12,17 +16,14 @@
     />
     <link href="assets/css/signinpage.css" rel="stylesheet" />
   </head>
-
   <body>
     <%- include('partials/navbar') -%>
-
     <div class="wrapper">
       <div class="title-text">
         <div class="title login">Account</div>
         <div class="title signup">Account</div>
       </div>
       <%- include('partials/messages') -%>
-
       <div class="form-container">
         <div class="slide-controls">
           <input type="radio" name="slide" id="login" checked />
@@ -101,7 +102,6 @@
         </div>
       </div>
     </div>
-
     <script>
       const loginText = document.querySelector(".title-text .login");
       const loginForm = document.querySelector("form.login");
@@ -122,6 +122,5 @@
       };
     </script>
     <%- include('partials/footer') -%>
-
   </body>
 </html>

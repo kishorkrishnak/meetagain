@@ -10,12 +10,13 @@
   </head>
   <body>
     <%- include('partials/navbar') -%>
-
     <div class="container">
       <div class="notfound-title">
-        <h1 style="font-family: 'Poppins', sans-serif">OOP ! WE ARE SORRY</h1>
+        <h1 style="font-family: 'Poppins', sans-serif">
+          OOP ! WE ARE SORRY :(
+        </h1>
         <p class="announcefound" style="font-size: 35px">
-          Your friend is not here yet.Hope you meet him one day!
+          Your friend is not here yet..Hope you meet him one day!
         </p>
       </div>
       <div class="qoute-card">
@@ -34,12 +35,10 @@
             >
           </p>
         </div>
-        <center>
-          <a href="/dashboard" class="main-butto">SEARCH AGAIN</a>
-          <a href="/" class="main-butto">GO HOME</a>
-          <br />
-          <br />
-        </center>
+        <div style="margin-top: 20px">
+          <a href="/dashboard" class="btn btn-searchagain">SEARCH AGAIN</a>
+          <a href="/" class="btn btn-gohome">GO HOME</a>
+        </div>
       </div>
     </div>
     <%- include('partials/footer') -%>

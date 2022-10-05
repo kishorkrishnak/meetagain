@@ -1,25 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
 }
 html,
 body {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
-  place-items: center;
-  background: #9896f0;
-  font-family: Arial, Helvetica, sans-serif;
+  background: #e9ebee;
+  font-family: "Poppins", sans-serif;
 }
 ::selection {
   background: #12e8f0;
   color: #fff;
 }
 .wrapper {
+  margin: 0 auto;
   overflow: hidden;
   max-width: 390px;
   background: #fff;
@@ -71,7 +72,7 @@ body {
   left: 0;
   z-index: 0;
   border-radius: 5px;
-  background: -webkit-linear-gradient(left, #fbee97, #adedd5);
+  background: -webkit-linear-gradient(left, #ddd, cyan);
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 input[type="radio"] {

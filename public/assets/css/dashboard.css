@@ -2,6 +2,9 @@
 .wishuser {
   margin-top: 200px;
 }
+body{
+  font-family: "Poppins", sans-serif;
+}
 .luck {
   color: wheat;
   font-family: "Poppins", sans-serif;

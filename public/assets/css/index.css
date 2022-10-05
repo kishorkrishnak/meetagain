@@ -1,16 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
+  color: #212529;
+  font-family: "Poppins", sans-serif;
+}
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif !important;
 }
 .header {
-  position: fixed !important;
-  display: flex !important;
-  top: 0 !important;
+  position: fixed;
+  display: flex;
+  top: 0;
 }
 .friends-img {
-  height: 550px !important;
+  height: 550px;
 }
 .nav-container {
   display: flex;
@@ -21,7 +24,7 @@
   justify-content: space-between;
 }
 .nav-brand {
-  font-size: 1.5rem !important;
+  font-size: 1.5rem;
 }
 .landing-section {
   display: flex;
@@ -34,7 +37,7 @@
 }
 #hero {
   width: 100%;
-  height: 105vh !important ;
+  height: 105vh;
   padding: 0;
   background: #fef8f5;
   border-bottom: 2px solid #fcebe3;
@@ -53,7 +56,6 @@
   font-size: 24px;
 }
 #hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -125,10 +127,6 @@
     transform: translateY(-10px);
   }
 }
-body {
-  font-family: "Open Sans", sans-serif;
-  color: #212529;
-}
 a {
   color: #eb5d1e;
   text-decoration: none;
@@ -147,15 +145,6 @@ p {
   font-size: 15px;
   line-height: 25px;
   color: #4a4a4a;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.font-primary {
-  font-family: "Raleway", sans-serif;
 }
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
@@ -484,19 +473,6 @@ section {
   font-size: 32px;
   font-weight: 500;
   line-height: 50px;
-  font-family: "Poppins", sans-serif;
-}
-.footer {
-  background-color: #022144;
-}
-.headercol {
-  background-color: #e9ebee;
-}
-.poptest {
-  color: #0b214a;
-}
-.subtitlepopin {
-  font-family: "Poppins", sans-serif;
 }
 #signupimg {
   margin-top: 100px;
@@ -506,16 +482,11 @@ section {
   height: 100vh;
 }
 .headercollser {
-  background-color: #303030;
+  background-color: #98d4f3;
   height: 100vh;
-}
-.subtitlepopincopy {
-  font-family: "Poppins", sans-serif;
-  color: white;
 }
 #about {
   padding: 120px 0px;
-  border-bottom: 1px solid #eee;
 }
 @media (max-width: 765px) {
   #about {
@@ -627,55 +598,6 @@ button.main-button:hover {
   color: #777;
   text-align: center;
 }
-
-footer {
-  background-color: #fff;
-  padding: 60px 0px;
-}
-footer .social {
-  overflow: hidden;
-  text-align: right;
-}
-footer .social li {
-  margin: 0px 5px;
-  display: inline-block;
-}
-footer .social li a {
-  color: #fff;
-  text-align: center;
-  background-color: #00b4c6;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 5px;
-  display: inline-block;
-  font-size: 16px;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-footer .social li a:hover {
-  background-color: #0088e8;
-  color: #fff;
-}
-footer .copyright {
-  margin-top: 10px;
-  font-weight: 400;
-  font-size: 15px;
-  color: white;
-  letter-spacing: 0.88px;
-  text-transform: capitalize;
-}
-@media (max-width: 991px) {
-  footer .copyright {
-    text-align: center;
-  }
-  footer .social {
-    text-align: center;
-    margin-top: 15px;
-  }
-}
 @media (max-height: 600px) {
   .header-area .main-nav .logo {
     font-size: 0;
@@ -689,9 +611,6 @@ footer .copyright {
   color: white;
   font-size: 37px;
   font-weight: 500;
-}
-.footer {
-  background-color: #022144;
 }
 .waitingfor-div {
   background-color: dodgerblue;

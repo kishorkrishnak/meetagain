@@ -1,7 +1,5 @@
-
 (function () {
   "use strict";
-
   const select = (el, all = false) => {
     el = el.trim();
     if (all) {
@@ -10,7 +8,6 @@
       return document.querySelector(el);
     }
   };
-
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all);
     if (selectEl) {
@@ -21,11 +18,9 @@
       }
     }
   };
-
   const onscroll = (el, listener) => {
     el.addEventListener("scroll", listener);
   };
-
   let navbarlinks = select("#navbar .scrollto", true);
   const navbarlinksActive = () => {
     let position = window.scrollY + 200;
@@ -45,12 +40,9 @@
   };
   window.addEventListener("load", navbarlinksActive);
   onscroll(document, navbarlinksActive);
-
-
   const scrollto = (el) => {
     let header = select("#header");
     let offset = header.offsetHeight;
-
     let elementPos = select(el).offsetTop;
     window.scrollTo({
       top: elementPos - offset,
@@ -58,34 +50,12 @@
     });
   };
 
-  /**
-   * Back to top button
-   */
-  let backtotop = select(".back-to-top");
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add("active");
-      } else {
-        backtotop.classList.remove("active");
-      }
-    };
-    window.addEventListener("load", toggleBacktotop);
-    onscroll(document, toggleBacktotop);
-  }
-
-  /**
-   * Mobile nav toggle
-   */
   on("click", ".mobile-nav-toggle", function (e) {
     select("#navbar").classList.toggle("navbar-mobile");
     this.classList.toggle("bi-list");
     this.classList.toggle("bi-x");
   });
 
-  /**
-   * Mobile nav dropdowns activate
-   */
   on(
     "click",
     ".navbar .dropdown > a",
@@ -98,16 +68,12 @@
     true
   );
 
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
   on(
     "click",
     ".scrollto",
     function (e) {
       if (select(this.hash)) {
         e.preventDefault();
-
         let navbar = select("#navbar");
         if (navbar.classList.contains("navbar-mobile")) {
           navbar.classList.remove("navbar-mobile");
@@ -121,9 +87,6 @@
     true
   );
 
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
   window.addEventListener("load", () => {
     if (window.location.hash) {
       if (select(window.location.hash)) {
