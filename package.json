@@ -7,9 +7,9 @@
     "devStart": "nodemon app.js",
     "start": "nodemon app.js"
   },
-  "author": "",
+  "author": "ExoticFormula",
   "license": "ISC",
-  "description": "",
+  "description": "A platform to search for your lost online friends",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",

@@ -52,6 +52,6 @@ body {
 }
 
 .qoute-card:hover {
-  transform: scale(1.1);
-  transition: 200ms ease;
+  transform: scale(1.05);
+  transition: 300ms ease;
 }

@@ -1,3 +1,6 @@
+body {
+  background-color: teal !important;
+}
 .container-contact {
   display: flex;
   height: 100vh;
@@ -5,8 +8,15 @@
   justify-content: center;
   align-items: center;
 }
+
+.checklist-image {
+  height: 427px;
+  max-width: 439px;
+
+  width: 100%;
+}
 .wrap-contact {
-  background-color: teal;
+  background-color: #00acc1;
   padding: 40px 20px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -20,8 +30,15 @@
   align-items: center;
   justify-content: center;
 }
+
+.wrapper-main div:first-child img {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
 .wrapper-main div:first-child {
-  border: 1px solid teal;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
   height: 100% !important;
   width: 100%;
 }
@@ -33,7 +50,7 @@ textarea {
   border-radius: 1px;
   border: none;
   outline: none;
-  width: 80vw;
+  width: 90vw;
 }
 .wrap-contact button {
   border: none;
