@@ -15,24 +15,6 @@ const connectDB = async () => {
     userFindAndModify: false,
   });
 };
-
-const exec = require("child_process").exec;
-
-function os_func() {
-  this.execCommand = function (cmd) {
-    return new Promise((resolve, reject) => {
-      exec(cmd, (error, stdout, stderr) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        resolve(stdout);
-      });
-    });
-  };
-}
-var os = new os_func();
-
 connectDB();
 let credSchema = new mongoose.Schema({
   username: String,
@@ -83,13 +65,6 @@ app.listen(PORT, () => {
   console.log("server started");
 });
 app.get("/", (req, res) => {
-  // os.execCommand("./sherlock/index.js --name ExoticFormula")
-  //   .then((res) => {
-  //     console.log(res);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //   });
   res.render("index");
 });
 app.get("/contact", (req, res) => {
@@ -135,29 +110,35 @@ app.get("/login", (req, res) => {
 app.post("/signup", (req, res) => {
   const username = req.body.username;
   const email = req.body.email;
-  const passwd = req.body.password;
-  const passwd2 = req.body.password2;
+  const password = req.body.password;
+  const password2 = req.body.password2;
   let errors = [];
-  if (!username || !email || !passwd || !passwd2) {
+  if (!username || !email || !password || !password2) {
     errors.push({ msg: "Please fill in all fields" });
-  } else if (passwd !== passwd2) {
+  } else if (password !== password2) {
     errors.push({ msg: "Passwords do not match" });
-  } else if (passwd.length < 6) {
+  } else if (password.length < 6) {
     errors.push({ msg: "Password should be atleast 6 characters" });
   }
   if (errors.length > 0) {
-    res.render("signinpage", { errors, username, email, passwd, passwd2 });
+    res.render("signinpage", { errors, username, email, password, password2 });
   } else {
     //validation succesfull
     User.findOne({ email: email }).then((user) => {
       if (user) {
         errors.push({ msg: "Email is already registered" });
-        res.render("signinpage", { errors, username, email, passwd, passwd2 });
+        res.render("signinpage", {
+          errors,
+          username,
+          email,
+          password,
+          password2,
+        });
       } else {
         var user_instance = new User({
           username: username,
           email: email,
-          password: passwd,
+          password: password,
         });
         //hash passwords
         bcrypt.genSalt(10, (err, salt) => {
@@ -224,11 +205,56 @@ app.get("/logout", (req, res) => {
   req.flash("success_msg", "You are logged out");
   res.redirect("/");
 });
-app.post("/searchreq", (req, res) => {
-  Submit.find({ username: req.body.usersearch.toLowerCase().trim() })
-    .then((submit) => {
-      if (submit.length > 0) {
-        res.render("results", { submit });
+const truncateEmail = (submits) => {
+  submits.forEach((submit) => {
+    let truncatedcontactemail = submit.contactemail.substring(0, 3);
+    let asterixcount = submit.contactemail.substring(
+      3,
+      submit.contactemail.indexOf("@")
+    ).length;
+    for (let i = 0; i < asterixcount; i++) {
+      truncatedcontactemail += "*";
+    }
+    truncatedcontactemail += "@gmail.com";
+    submit.contactemail = truncatedcontactemail;
+  });
+};
+app.post("/search", async (req, res) => {
+  let searchquery = req.body.usersearch.toLowerCase().trim();
+
+  await Submit.find({
+    $or: [
+      {
+        realname: {
+          $regex: searchquery,
+        },
+      },
+      {
+        username: {
+          $regex: searchquery,
+        },
+      },
+      {
+        contactemail: {
+          $regex: searchquery,
+        },
+      },
+      {
+        discordid: {
+          $regex: searchquery,
+        },
+      },
+      {
+        note: {
+          $regex: searchquery,
+        },
+      },
+    ],
+  })
+    .then((submits) => {
+      truncateEmail(submits);
+      if (submits.length > 0) {
+        res.render("results", { submits });
       } else {
         res.render("notfound");
       }
@@ -237,7 +263,4 @@ app.post("/searchreq", (req, res) => {
       console.log(err);
       res.render("notfound");
     });
-});
-app.get("/dev", (req, res) => {
-  res.render("log");
 });

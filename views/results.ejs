@@ -26,16 +26,16 @@
           We found few users! is this whom you looking for?.
         </p>
         <div class="user-grid">
-          <% for(let count = 0; count < submit.length ; count++ ){ %>
+          <% for(let count = 0; count < submits.length ; count++ ){ %>
           <div class="user-card">
             <img src="images/smilex.svg" alt="" style="height: 60px" />
             <h4 class="title"><h1 id="userinfoh1">USER INFO</h1></h4>
             <p class="description" style="font-family: 'Poppins', sans-serif">
-              <b>Name</b> :<%= submit[count].realname %> <br />
-              <b>Username </b> :<%= submit[count].username %> <br />
-              <b>Discord ID</b> :<%= submit[count].discordid %> <br />
-              <b>Email</b> :<%= submit[count].email %> <br />
-              <b>Message</b> :<i>" </i> <%= submit[count].note %> " <br />
+              <b>Name</b> :<%= submits[count].realname %> <br />
+              <b>Username </b> :<%= submits[count].username %> <br />
+              <b>Discord ID</b> :<%= submits[count].discordid %> <br />
+              <b>Email</b> :<%= submits[count].contactemail %> <br />
+              <b>Message</b> :<i>" </i> <%= submits[count].note %> " <br />
               <br />
               <b>
                 Mail us at <a href="mailto: meetagainsite@gmail.com">Mail</a> to
