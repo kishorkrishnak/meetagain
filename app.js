@@ -90,7 +90,6 @@ app.get("/contact", (req, res) => {
 });
 
 app.post("/contact", (req, res) => {
-  console.log(req.body);
   res.render("contactthanks");
 });
 
@@ -147,7 +146,6 @@ app.post("/signup", (req, res) => {
   }
 
   if (errors.length > 0) {
-    console.log(errors);
     res.render("signinpage", { errors, username, email, passwd, passwd2 });
   } else {
     //validation succesfull
@@ -188,8 +186,6 @@ app.post("/signup", (req, res) => {
 
 passport.use(
   new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-    console.log(email);
-    console.log(password);
     User.findOne({ email: email })
       .then((user) => {
         if (!user) {
@@ -221,7 +217,6 @@ passport.deserializeUser((id, done) => {
 });
 
 app.post("/login", (req, res, next) => {
-  console.log(req.body);
   passport.authenticate("local", {
     successRedirect: "/dashboard",
     failureRedirect: "/login",
@@ -243,12 +238,10 @@ app.get("/logout", (req, res) => {
 
 app.post("/searchreq", (req, res) => {
   let sub2;
-  console.log(req.body);
   Submit.find({ username: req.body.usersearch.toLowerCase().trim() })
     .then((submit) => {
       sub2 = submit;
 
-      console.log(submit);
       if (submit.length > 0) {
         res.render(
           "results",
