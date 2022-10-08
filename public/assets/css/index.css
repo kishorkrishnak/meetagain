@@ -37,9 +37,8 @@ body {
 }
 #hero {
   width: 100%;
-  height: 105vh;
+  height: 90vh !important;
   padding: 0;
-  background: #fef8f5;
   border-bottom: 2px solid #fcebe3;
   margin: 0;
 }

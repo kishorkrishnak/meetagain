@@ -221,7 +221,6 @@ const truncateEmail = (submits) => {
 };
 app.post("/search", async (req, res) => {
   let searchquery = req.body.usersearch.toLowerCase().trim();
-
   await Submit.find({
     $or: [
       {
