@@ -1,3 +1,20 @@
+.container {
+  min-height: 100vh;
+  padding-top: 30px;
+  text-align: center;
+}
+.user-grid {
+  height: fit-content;
+  margin-top: 30px;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+  align-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(750px, 1fr));
+}
+
 .user-card {
   color: #4a4a4a;
   width: 82vw;
@@ -16,17 +33,6 @@
   transform: scale(1.05);
   transition: 300ms ease;
 }
-.user-grid {
-  height: fit-content;
-  margin-top: 30px;
-  display: grid;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  gap: 20px;
-  align-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(750px, 1fr));
-}
 
 .btn {
   color: white;
@@ -34,9 +40,4 @@
   padding: 9px 12px;
   border-radius: 5px;
   margin-top: 10px;
-}
-.container {
-  min-height: 100vh;
-  padding-top: 30px;
-  text-align: center;
 }

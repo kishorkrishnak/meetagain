@@ -2,22 +2,11 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-
   background-color: #f5f8fd;
 }
-
 * {
   margin: 0;
   box-sizing: border-box;
-}
-
-.notfound-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 20px;
-  color: #413e66;
 }
 .container {
   padding-top: 50px;
@@ -31,27 +20,32 @@ body {
   justify-content: center;
   gap: 30px;
 }
+.qoute-card {
+  color: #4a4a4a;
+  width: 82vw;
+  max-width: 800px;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0.2, 0.14);
+}
+.qoute-card:hover {
+  transform: scale(1.05);
+  transition: 300ms ease;
+}
+.notfound-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  color: #413e66;
+}
 .btn {
   color: white;
   background-color: #fc4747;
   padding: 9px 12px;
   border-radius: 5px;
   margin-top: 10px;
-}
-.qoute-card {
-  color: #4a4a4a;
-  width: 82vw;
-  max-width: 800px;
-
-  text-align: center;
-  padding: 50px 20px;
-  border-radius: 5px;
-  background-color: white;
-
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0.2, 0.14);
-}
-
-.qoute-card:hover {
-  transform: scale(1.05);
-  transition: 300ms ease;
 }

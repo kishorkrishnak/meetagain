@@ -61,10 +61,13 @@ textarea {
   background-color: #fc4747;
 }
 @media (max-width: 900px) {
+  img {
+    height: 350px !important;
+  }
   .wrapper-main {
     flex-direction: column;
   }
   .container-contact {
-    transform: scale(0.8);
+    transform: scale(0.95);
   }
 }
