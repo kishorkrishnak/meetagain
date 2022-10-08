@@ -3,7 +3,7 @@ body {
 }
 .container-contact {
   display: flex;
-  height: 100vh;
+  height: 95vh;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@ body {
 }
 .wrap-contact {
   background-color: #00acc1;
-  padding: 40px 20px;
+  padding: 15px 20px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
